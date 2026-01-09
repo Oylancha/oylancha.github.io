@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project10-1.jpeg" class="slide active">
+            <img src="project10-2.jpeg" class="slide">
+            <img src="project10-3.jpeg" class="slide">
+            <img src="project10-4.jpeg" class="slide">
+            <img src="project10-5.jpeg" class="slide">
+            <img src="project10-6.jpeg" class="slide">
+            <img src="project10-7.jpeg" class="slide">
+            <img src="project10-8.jpeg" class="slide">
+            <img src="project10-9.jpeg" class="slide">
+            <img src="project10-10.jpeg" class="slide">
+            <img src="project10-11.jpeg" class="slide">
+            <img src="project10-12.jpeg" class="slide">
+            <img src="project10-13.jpeg" class="slide">
+            <img src="project10-14.jpeg" class="slide">
+            
+            
+            
+            
+            
+            </div>
+
+        <div class="info">
+            <h1>Премиальная Hi-Tech вилла с панорамным остеклением и служебной кухней</h1>
+            <p>
+                Этот проект — эталон современной архитектуры. Строгие геометрические линии, плоская кровля и белоснежный фасад с контрастными черными элементами создают образ стильного и респектабельного дома. Огромные панорамные окна и стеклянные ограждения террас стирают границу между интерьером и окружающим ландшафтом, наполняя дом светом.
+                <br><br>
+                Первый этаж — Продуманный сервис и открытое пространство: Планировка первого уровня впечатляет своим вниманием к бытовому комфорту:
+                <br><br>
+                - Представительская зона: Просторная гостиная объединена с холлом, создавая великолепное пространство для приема гостей. Отдельно выделена светлая зона столовой и основной кухни.
+                <br>
+                - Профессиональный блок: Уникальная особенность проекта — наличие скрытой «черновой» (рабочей) кухни, большой кладовой для продуктов и отдельной постирочной. Это позволяет держать парадную зону в идеальной чистоте, скрывая бытовые процессы от глаз.
+                <br>
+                - Гостевая спальня: На этаже предусмотрена изолированная жилая комната, которая подойдет для гостей или старших членов семьи, предпочитающих не пользоваться лестницей.
+                <br>
+                - Терраса: Из столовой зоны есть выход на крытую террасу, идеальную для завтраков на свежем воздухе.
+                <br><br>
+                Второй этаж — Приватность и отдых: Поднявшись наверх, вы попадаете в зону личного комфорта владельцев:
+                <br><br>
+                - Семейная гостиная: В центре этажа расположена вторая гостиная (холл), откуда открывается выход на просторную открытую террасу с видом на участок.
+                <br>
+                - Спальни: Здесь спроектированы три спальни. Мастер-спальня имеет собственный выход в гардеробную и ванную комнату, обеспечивая полную приватность.
+                <br>
+                - Комфорт: Дополнительные санузлы и гардеробные зоны делают утренние сборы удобными для всех жильцов.
+                <br><br>
+                Почему этот дом уникален:
+                <br><br>
+                - Стиль: Трендовый дизайн с плоской крышей и стеклянными балконами.
+                <br>
+                - Функциональность "5 звезд": Редкое для частных домов наличие черновой кухни и полноценного блока для персонала/хозяйственных нужд.
+                <br>
+                - Зонирование: Четкое разделение на гостевую (внизу) и семейную (наверху) зоны отдыха.
+                <br><br>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

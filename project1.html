@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project1-1.jpeg" class="slide active">
+            <img src="project1-2.jpeg" class="slide">
+            <img src="project1-3.jpeg" class="slide">
+            <img src="project1-4.jpeg" class="slide">
+            <img src="project1-5.jpeg" class="slide">
+            <img src="project1-6.jpeg" class="slide">
+            <img src="project1-7.jpeg" class="slide">
+
+            </div>
+
+        <div class="info">
+            <h1>Стильный коттедж в стиле Хай-Тек с гаражом на 2 авто и террасами</h1>
+            <p>
+                Этот дом — идеальный выбор для ценителей современной архитектуры и городского комфорта. Здание отличается строгой геометрией форм, плоской крышей и лаконичным фасадом, где белоснежная штукатурка эффектно сочетается с черными рамами панорамных окон и темным каменным цоколем. Стеклянные ограждения балконов придают конструкции легкость и завершенный вид.
+                <br><br>
+                Первый этаж — Комфорт и логистика: Планировка первого уровня разработана с учетом максимального удобства для автовладельцев и хозяйственных нужд:
+                <br><br>
+                - Гаражный комплекс: К дому пристроен просторный гараж на два автомобиля. Из него можно попасть в жилую часть через буферную зону, что особенно удобно в плохую погоду.
+                <br>
+                - Хозяйственный блок: Рядом с гаражом и кухней размещены котельная и отдельная кладовая. Это позволяет сразу разгружать продукты из машины, не пронося их через весь дом.
+                <br>
+                - Зона кухни и столовой: Кухня выделена в отдельное помещение, но соседствует с просторной светлой столовой, где соберется вся семья.
+                <br>
+                - Гостевая зона: Центром этажа является большой холл-зал. Также здесь предусмотрена изолированная спальня для гостей и ванная комната.
+                <br><br>
+                Второй этаж — Личное пространство: Верхний уровень отведен под отдых и релаксацию:
+                <br><br>
+                - Вторая гостиная: Поднявшись по лестнице, вы попадаете в уютный верхний зал, который имеет выход на широкий балкон со стеклянным ограждением — идеальное место для вечернего отдыха.
+                <br>
+                - Спальни: Здесь расположены две просторные спальни. Благодаря удачной планировке, они изолированы друг от друга, обеспечивая тишину.
+                <br>
+                - Удобства: На этаже спроектированы две ванные комнаты, что повышает уровень комфорта для жильцов.
+                <br><br>
+                Почему этот проект актуален:
+                <br><br>
+                - Встроенный гараж: Редкая и ценная опция для современных проектов, обеспечивающая теплое хранение автомобилей.
+                <br>
+                - Разумная логистика: Путь "Гараж -> Кладовая -> Кухня" максимально продуман.
+                <br>
+                - Современный дизайн: Панорамное остекление и плоская кровля выделяют дом на фоне классической застройки.
+                <br>
+                - Функциональность: Наличие спальни на первом этаже и двух гостиных зон (внизу и наверху).
+                <br><br>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

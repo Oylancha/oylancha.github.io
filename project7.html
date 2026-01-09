@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project7-1.jpeg" class="slide active">
+            <img src="project7-2.jpeg" class="slide">
+            <img src="project7-3.jpeg" class="slide">
+            <img src="project7-4.jpeg" class="slide">
+            <img src="project7-5.jpeg" class="slide">
+            
+            
+            
+            </div>
+
+        <div class="info">
+            <h1>Просторный двухэтажный коттедж с большой террасой и навесом для авто</h1>
+            <p>
+                Предлагаем вашему вниманию проект идеального семейного дома, сочетающего в себе классический уют и современную функциональность. Светлый фасад с контрастной темной кровлей и большими окнами создает ощущение легкости и стиля. Продуманная планировка разделяет пространство на гостевую и приватную зоны, обеспечивая комфорт для всех членов семьи.
+                <br><br>
+                Первый этаж — Простор и гостеприимство: Сердцем первого этажа является просторная кухня-столовая (около 28 м²), где удобно собираться всей семьей. Рядом расположен светлый гостиный зал с эркером, который придает помещению особый шарм и объем. Также на этаже находятся:
+                <br><br>
+                - Изолированная спальня (18 м²), идеально подходящая для гостей или пожилых родственников.
+                <br>
+                - Большая ванная комната.
+                <br>
+                - Отдельная котельная (бойлерная) для автономного обеспечения дома.
+                <br>
+                - Прихожая с удобной лестницей на второй этаж.
+                <br><br>
+                Второй этаж — Приватность и комфорт: Второй уровень отведен под зону отдыха. Изюминкой планировки является вторая гостиная (холл) с выходом на уютный полукруглый балкон. Здесь расположены:
+                <br><br>
+                - Две большие спальни (по 18–20 м² каждая), обеспечивающие личное пространство.
+                <br>
+                - Вместительная гардеробная комната, позволяющая освободить жилые комнаты от шкафов.
+                <br>
+                - Вторая ванная комната.
+                <br><br>
+                Особенности и преимущества:
+                <br><br>
+                - Огромный навес для автомобилей: Крытая парковка размером 10 х 6 метров позволяет свободно разместить два автомобиля и защитить их от осадков и солнца.
+                <br>
+                - Эргономика: Наличие санузлов на обоих этажах и выделенных зон хранения (гардероб, котельная).
+                <br>
+                - Архитектура: Элегантный эркер на первом этаже и балкон над ним создают выразительный архитектурный облик.
+                <br><br>
+                Этот дом — идеальное решение для семьи, которая ценит простор, свет и рациональное использование каждого квадратного метра.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

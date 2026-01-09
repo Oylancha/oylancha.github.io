@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project6-0.jpeg" class="slide active">
+            <img src="project6-1.jpeg" class="slide">
+            <img src="project6-2.jpeg" class="slide">
+            <img src="project6-3.jpeg" class="slide">
+            <img src="project6-4.jpeg" class="slide">
+            <img src="project6-5.jpeg" class="slide">
+            
+            
+            
+            </div>
+
+        <div class="info">
+            <h1>Классический семейный коттедж с кабинетом и «холодной» комнатой</h1>
+            <p>
+                Этот дом — образец практичности и традиционного уюта. Светлый фасад с лаконичным декором и коричневая черепичная крыша создают образ надежного семейного гнезда. Одной из ключевых особенностей экстерьера является большой интегрированный навес, который гармонично вписан в общую конструкцию здания, обеспечивая защиту автомобиля.
+                <br><br>
+                Первый этаж — Функциональность и работа: Планировка первого этажа предлагает насыщенный набор помещений для жизни и работы:
+                <br><br>
+                - Гостиная зона: Сердцем дома является огромный гостевой зал, пространство которого позволяет собирать большие компании. Он удобно связан с холлом и лестничным пролетом.
+                <br>
+                - Кухня и хранение: Просторная кухня-столовая изолирована от жилых комнат. Рядом с ней находится уникальное помещение — специальная «холодная комната». Это идеальное решение для хранения заготовок и продуктов, заменяющее погреб.
+                <br>
+                - Жилая и рабочая зоны: На первом уровне расположены сразу две изолированные комнаты: уютная спальня и полноценный кабинет. Такое решение отлично подойдет для тех, кто работает из дома или принимает гостей.
+                <br>
+                - Удобства: Также внизу предусмотрены ванная комната и гардеробная.
+                <br><br>
+                Второй этаж — Личное пространство: Второй этаж повторяет удобную структуру первого, предлагая еще больше места для семьи:
+                <br><br>
+                - Спальни: Здесь размещены три спальни, что позволяет выделить личную комнату каждому члену семьи.
+                <br>
+                - Второй кабинет: На этаже предусмотрен еще один кабинет, который при необходимости можно переоборудовать в четвертую спальню, игровую или библиотеку.
+                <br>
+                - Комфорт: Для удобства жильцов спроектированы две ванные комнаты и гардеробная зона.
+                <br>
+                - Холл: Просторный центральный холл объединяет все комнаты, добавляя этажу воздуха.
+                <br><br>
+                Почему этот проект выгоден:
+                <br><br>
+                - Много комнат: Всего в доме можно обустроить до 6 жилых помещений (4 спальни + 2 кабинета).
+                <br>
+                - Хранение: Наличие редкой для современных проектов «холодной комнаты».
+                <br>
+                - Удаленная работа: Идеально подходит для фрилансеров благодаря наличию кабинетов на обоих этажах.
+                <br>
+                - Навес: Практичное решение для парковки без строительства отдельного гаража.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

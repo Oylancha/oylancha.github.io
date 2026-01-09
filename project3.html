@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project3-1.jpeg" class="slide active">
+            <img src="project3-2.jpeg" class="slide">
+            <img src="project3-3.jpeg" class="slide">
+            <img src="project3-4.jpeg" class="slide">
+            <img src="project3-5.jpeg" class="slide">
+            
+            </div>
+
+        <div class="info">
+            <h1>Современный семейный коттедж с гаражом и мастер-спальнями</h1>
+            <p>
+                Этот проект разработан для современной семьи, которой важен комфорт, личное пространство и функциональность. Здание выполнено в лаконичном стиле с плоской кровлей, белоснежным фасадом и контрастным панорамным остеклением. Интегрированный в объем дома гараж не нарушает гармонию архитектурного ансамбля, а большие окна наполняют интерьеры естественным светом.
+                <br><br>
+                Первый этаж — Комфорт и логистика: Планировка нижнего уровня идеально решает бытовые задачи:
+                <br><br>
+                - Гараж и техзона: Дом оснащен большим теплым гаражом на два автомобиля. Из него есть прямой доступ в котельную и в жилую часть дома через тамбур, что позволяет зайти домой сухим в любую погоду. Рядом с кухней предусмотрена вместительная кладовая, куда удобно разгружать покупки сразу из машины.
+                <br>
+                - Общая зона: Просторная кухня-столовая плавно перетекает в светлый гостиный зал. Отсутствие лишних перегородок создает ощущение объема и свободы.
+                <br>
+                - Гостевой сервис: На входе расположен гардероб и гостевой санузел, скрытые от приватных зон.
+                <br><br>
+                Второй этаж — Приватность "Люкс" класса: Верхний этаж удивляет насыщенностью и продуманностью планировки:
+                <br><br>
+                - Мастер-спальни: Две основные спальни спроектированы по принципу гостиничных люксов — каждая имеет собственную гардеробную зону и персональную ванную комнату. Это высший уровень комфорта для членов семьи.
+                <br>
+                - Рабочая зона: В общем холле выделен специальный «компьютерный уголок». Это идеальное место для домашнего офиса или учебной зоны для детей, которое не занимает место в спальнях.
+                <br>
+                - Гостевая и балкон: На этаже также расположена уютная гостевая комната с выходом на балкон, а также еще одна дополнительная спальня.
+                <br><br>
+                Почему стоит выбрать этот дом:
+                <br><br>
+                - Гараж в доме: Максимальное удобство эксплуатации автомобиля зимой.
+                <br>
+                - Автономность спален: Наличие собственных санузлов и гардеробных в комнатах исключает утренние очереди в ванную.
+                <br>
+                - Work-life balance: Выделенная зона для удаленной работы или учебы.
+                <br>
+                - Хранение: Большая кладовая при кухне.
+                
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

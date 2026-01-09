@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Проекта</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #e67e22; }
+        body { margin: 0; font-family: Helvetica, sans-serif; background: #f4f7f6; color: #333; }
+        
+        /* Nav */
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .back-btn { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; }
+        .back-btn:before { content: "←"; margin-right: 5px; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        
+        /* Slider Styling */
+        .slider-container { position: relative; width: 100%; height: 500px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        .slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .slide.active { display: block; }
+        
+        /* Buttons */
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 15px; cursor: pointer; font-size: 1.5rem; user-select: none; transition: 0.3s; }
+        .arrow:hover { background: white; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Description */
+        .info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { margin-top: 0; color: var(--primary); }
+        p { line-height: 1.6; color: #555; }
+        
+        @media (max-width: 768px) {
+            .slider-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">Назад к проектам</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="slider-container">
+            <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+            <img src="project4-1.jpeg" class="slide active">
+            <img src="project4-2.jpeg" class="slide">
+            <img src="project4-3.jpeg" class="slide">
+            <img src="project4-4.jpeg" class="slide">
+            <img src="project4-5.jpeg" class="slide">
+            <img src="project4-6.jpeg" class="slide">
+            <img src="project4-7.jpeg" class="slide">
+            
+            </div>
+
+        <div class="info">
+            <h1>Респектабельная усадьба с «вторым светом» и комплексом кухонных помещений"</h1>
+            <p>
+                Этот двухэтажный особняк выполнен в спокойном классическом стиле с элементами модерна. Благородное сочетание бежево-серого фасада с белоснежным декором и темной крышей придает дому солидный и элегантный вид. Архитектурную композицию дополняют мощные колонны, поддерживающие крышу над террасой и балконом, а также большие окна, визуально облегчающие конструкцию.
+                <br><br>
+                Первый этаж — Продуманный быт и торжественные приемы: Планировка нижнего уровня изобилует редкими и очень полезными решениями:
+                <br><br>
+                - Кухонная зона мечты: Проект предлагает идеальную организацию процессов готовки. Здесь есть основная кухня-столовая для семейных трапез, отдельная «черновая» (рабочая) кухня для масштабной готовки и большая кладовая для хранения запасов. Все это сгруппировано в правом крыле дома.
+                <br>
+                - Гостиная: Центральное место занимает просторный гостевой зал с эркером, который наполняет комнату светом.
+                <br>
+                - Хозяйственный блок: Слева от входа расположен блок вспомогательных помещений: котельная и специальная холодная комната (для солений, шуб и продуктов), что является большим преимуществом для частного дома.
+                <br>
+                - Жилая комната: В глубине этажа находится изолированная спальня, рядом с которой расположена большая ванная-постирочная.
+                <br>
+                - Террасы: Дом окружен террасами, а справа примыкает большой навес.
+                <br><br>
+                Второй этаж — Воздух и комфорт: Поднимаясь на второй этаж, вы попадаете в пространство, полное света:
+                <br><br>
+                - Второй свет: Лестничный пролет освещается естественным светом через высокие окна («второй свет»), создавая ощущение дворцового простора.
+                <br>
+                - Зона отдыха: Центром этажа служит второй гостевой зал, вокруг которого сгруппированы личные комнаты.
+                <br>
+                - Уникальная опция: Изюминка планировки — общая гардеробная-утюжная с выходом на собственный балкон. Это превращает рутинные домашние дела в удовольствие на свежем воздухе.
+                <br>
+                - Спальни: На этаже расположены две просторные спальни и дополнительные санузлы.
+                <br><br>
+                Почему этот дом особенный:
+                <br><br>
+                - Кухонный сервис: Полный набор (Чистая кухня + Черновая кухня + Кладовая).
+                <br>
+                - Хранение: Наличие холодной комнаты и специализированной утюжной/гардеробной.
+                <br>
+                - Эстетика: Эффект «второго света» над лестницей.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) { currentSlide = 0; }
+            if (currentSlide < 0) { currentSlide = slides.length - 1; }
+            
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
